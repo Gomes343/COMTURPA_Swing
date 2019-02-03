@@ -11,6 +11,9 @@ public class ProcessoAdministrativo {
     private String status;
     private String observacao;
 
+    public ProcessoAdministrativo(){
+        
+    }
     public ProcessoAdministrativo(Date data, String numero, String criador, String objeto, String status, String observacao) {
         this.data = data;
         this.numero = numero;

@@ -5,6 +5,8 @@
  */
 package View;
 
+import Control.ThreadBD;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,26 +17,17 @@ import java.util.logging.Logger;
 public class PrincipalView extends javax.swing.JFrame {
 
     
-        public Thread Recebedor = new Thread(new Runnable(){ 
-            @Override
-            public void run(){ 
-                while (true){ 
-                    try {
-                        EnviarParaTela();
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(MenuInicial.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    } 
-                } 
-            } 
-        ); 
+        public ThreadBD Recebedor;
+                
+         
     
         
         
     /**
      * Creates new form NewJFrame
      */
-    public PrincipalView() {
+    public PrincipalView() throws IOException {
+        this.Recebedor = new ThreadBD();
         initComponents();
     }
 

@@ -1,6 +1,7 @@
 
 package Control;
 
+import Model.ProcessoAdministrativo;
 import java.io.IOException;
 import java.net.Socket;
 import java.sql.ResultSet;
@@ -13,9 +14,13 @@ public class ThreadBD implements Runnable{
 
     DAOBD dao = new DAOBD();
     ResultSet rs;
+    int a = 10;
+    ProcessoAdministrativo[] pa = new ProcessoAdministrativo[a];
+    
+    
     
     public ThreadBD() throws IOException{
-
+        
     }
    
     
