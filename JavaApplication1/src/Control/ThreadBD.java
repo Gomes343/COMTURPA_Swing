@@ -2,58 +2,52 @@
 package Control;
 
 import Model.ProcessoAdministrativo;
-import java.io.IOException;
-import java.net.Socket;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.awt.TextArea;import java.io.IOException;
+import static java.lang.Thread.sleep;
+
+import java.sql.SQLException;
+
+import javax.swing.JTextArea;
 
 
 public class ThreadBD implements Runnable{
 
-    DAOBD dao = new DAOBD();
-    ResultSet rs;
-    int a = 10;
-    ProcessoAdministrativo[] pa = new ProcessoAdministrativo[a];
-    
-    
-    
-    public ThreadBD() throws IOException{
+        JTextArea ta;
+        PAController pac = new PAController();
+        int totalatual;        
+        ProcessoAdministrativo[] pa;
+                
+        
+    public ThreadBD(JTextArea TextArea) throws IOException, SQLException{
+        this.pa = new ProcessoAdministrativo[200];
+        this.totalatual = pac.QtNoBD();
+        this.ta = TextArea;
         
     }
-   
-    
-    
+ 
+        @Override
     public void run(){
 
             String entry = null;
 
-            while(true){
+     
 
+                    
                     try {
+                        ta.setText("  ");
+                        for(int i = 1; i <= totalatual; i++)
+                            pa[i-1] = pac.ConsultaPorID(i);
                         
-                        rs = dao.consultar();
-                        ResultSetMetaData rsmd = rs.getMetaData();
-                        int columnsNumber = rsmd.getColumnCount();
-                        
-                        
-                        while(rs.next()){
-                            for (int i = 1; i <= columnsNumber; i++) {
-                                if (i > 1) System.out.print(",  ");
-                                    String columnValue = rs.getString(i);
-                                    System.out.print(columnValue + " " + rsmd.getColumnName(i));
-                            }
-                            System.out.print("\n");
-                        }
-                        
-                        
-                        
-                        
+                        for(int i = 0; i < totalatual ; i++)
+                            ta.append(pa[i].getNumero()+"\n");
+         
+    
+                            sleep(2000);
                     }catch (Exception e){
                         System.out.println(e);
                     }
-                }
+
+                
             }
             
     }

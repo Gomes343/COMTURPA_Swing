@@ -18,11 +18,11 @@ public class DAOPA {
     }
     
     
-    public boolean inserir(String cpf, String nome,String regiao, String nascimento, int PaisID){
+    public boolean inserir(ProcessoAdministrativo pa){
         
         //criar a SQL com variaveis
-        String sql = "insert into Cidadao(cpf,nome,regiao,nascimento,PaisID)"
-                   + "values('"+ cpf +"','"+nome+"','"+regiao+"','"+nascimento+"','"+PaisID+"')";
+        String sql = "insert into ProcessoAdministrativo(Data,Numero,Criador,Objeto,Status,Observacao)"
+                   + "values('"+ pa.getData() +"','"+pa.getNumero()+"','"+pa.getCriador()+"','"+pa.getObjeto()+"','"+pa.getStatus()+"','"+pa.getObservacao()+"')";
         
         //conectar com BD
         conexao.conectar();
@@ -34,7 +34,7 @@ public class DAOPA {
         return b;     
         
     }
-    
+    /*
     public boolean atualizarData(int id, String data){
         //criar a SQL com variaveis
         String sql = "UPDATE Cidadao SET nome = '"+nome+"' where id = "+id;
@@ -65,7 +65,7 @@ public class DAOPA {
         
     }
     
-    public boolean atualizarDono(int id, String dono){
+    public boolean atualizarCriador(int id, String dono){
         //criar a SQL com variaveis
         String sql = "UPDATE Cidadao SET regiao = '"+regiao+"' where id = "+id;
         
@@ -128,6 +128,6 @@ public class DAOPA {
         return b;     
             
     }
-
+*/
 
 }
