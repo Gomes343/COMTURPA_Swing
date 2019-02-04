@@ -26,7 +26,6 @@ public class PAController {
         return size;
     }
     
-    
     public ProcessoAdministrativo ConsultaPorID(int id) throws SQLException{
         ResultSet rs;
         ProcessoAdministrativo consultado = new ProcessoAdministrativo();
@@ -40,21 +39,20 @@ public class PAController {
                             int comparar = Integer.parseInt(columnValue);                                
                                     if(comparar == id){
                                         String data = rs.getString(2);
-                                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
-                                        Date da = (Date) formatter.parse("2018-09-09 09:05:00");
-                                        consultado.setData(da);
+                                        //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
+                                        //Date da = (Date) formatter.parse("2018-09-09 09:05:00");
+                                        consultado.setData(data);
                                         consultado.setNumero(rs.getString(3));
                                         consultado.setCriador(rs.getString(4));
                                         consultado.setObjeto(rs.getString(5));
                                         consultado.setStatus(rs.getString(6));
                                         consultado.setObservacao(rs.getString(7));
-
                                     }
-                            
                             }
-                            
-                        
-    
             return consultado;
-    
-}}
+}
+
+
+
+
+}

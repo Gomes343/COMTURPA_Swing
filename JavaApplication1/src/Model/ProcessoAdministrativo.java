@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class ProcessoAdministrativo {
     
-    private Date data;
+    private String data;
     private String numero;
     private String criador;
     private String objeto;
@@ -14,7 +14,7 @@ public class ProcessoAdministrativo {
     public ProcessoAdministrativo(){
         
     }
-    public ProcessoAdministrativo(Date data, String numero, String criador, String objeto, String status, String observacao) {
+    public ProcessoAdministrativo(String data, String numero, String criador, String objeto, String status, String observacao) {
         this.data = data;
         this.numero = numero;
         this.criador = criador;
@@ -23,11 +23,24 @@ public class ProcessoAdministrativo {
         this.observacao = observacao;
     }
 
-    public Date getData() {
+    @Override
+    public String toString(){
+        System.out.println("Processo Administrativo\n"
+                + "Data = "+data+"\n"
+                + "Numero = "+numero+"\n"
+                + "Criador = "+criador+"\n"
+                + "Objeto = "+objeto+"\n"
+                + "Status = "+status+"\n"
+                + "Observação = "+observacao+"\n");
+        return null;
+        
+    };
+    
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 
