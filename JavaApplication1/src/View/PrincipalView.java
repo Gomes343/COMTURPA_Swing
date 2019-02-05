@@ -7,8 +7,6 @@ package View;
 
 import Control.DAOPA;
 import Control.PAController;
-import Control.TestThreadingAndGUI;
-import Control.TestThreadingAndGUI.DummyRunnable;
 import Control.ThreadBD;
 import Model.ProcessoAdministrativo;
 import java.io.IOException;
