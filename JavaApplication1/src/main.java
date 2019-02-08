@@ -1,7 +1,17 @@
 
+import Control.DAOBD;
+import Control.DAOPA;
+import Control.PAController;
+import Model.ProcessoAdministrativo;
 import View.PrincipalView;
+import static View.PrincipalView.TextArea;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.SwingWorker;
 
 
 public class main {
@@ -12,12 +22,6 @@ public class main {
         }catch(Exception e){
             System.out.println(e);
         }
-        
-        
-        
-        
-        
-        
         
         
     }

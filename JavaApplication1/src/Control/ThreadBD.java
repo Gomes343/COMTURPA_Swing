@@ -30,9 +30,6 @@ public class ThreadBD implements Runnable{
 
             String entry = null;
 
-     
-
-                    
                     try {
                         ta.setText("  ");
                         for(int i = 1; i <= totalatual; i++)
