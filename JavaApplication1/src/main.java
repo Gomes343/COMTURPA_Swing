@@ -16,6 +16,9 @@ import javax.swing.SwingWorker;
 
 public class main {
     public static void main(String[]args) throws IOException, SQLException{
+        System.out.println("RAMIFICAÇÃO COMTURPA_V1.2");
+        
+        
         try{
         PrincipalView pv = new PrincipalView();
         pv.setVisible(true);
