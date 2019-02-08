@@ -87,7 +87,7 @@ public class InicioView extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
 
-            ComprasView pv = new ComprasView();
+            AlterarComprasView pv = new AlterarComprasView();
             pv.setVisible(true);
             this.setVisible(false);
             

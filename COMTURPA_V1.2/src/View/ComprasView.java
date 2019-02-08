@@ -192,7 +192,7 @@ public class ComprasView extends javax.swing.JFrame {
         ButtonAlterar.setText("ALTERAR");
         ButtonAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAlterarButtonCriar(evt);
+                ButtonAlterar(evt);
             }
         });
 
@@ -489,9 +489,17 @@ public class ComprasView extends javax.swing.JFrame {
    
     
     
-    private void ButtonAlterarButtonCriar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAlterarButtonCriar
-
-    }//GEN-LAST:event_ButtonAlterarButtonCriar
+    private void ButtonAlterar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAlterar
+        if(clicked == true){
+            
+            
+            
+            
+        }
+        
+        
+        
+    }//GEN-LAST:event_ButtonAlterar
 
     private void FieldValorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_FieldValorFocusLost
         // TODO add your handling code here:
@@ -523,9 +531,6 @@ public class ComprasView extends javax.swing.JFrame {
             
         }else
             FieldValor.selectAll();
-        
-        
-        
     }//GEN-LAST:event_FieldValorFocusGained
 
     /**
@@ -553,6 +558,14 @@ public class ComprasView extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(ComprasView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
