@@ -1,23 +1,19 @@
 package Control;
 
 import Model.ProcessoAdministrativo;
+import Model.ProcessoCompras;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAccessor;
-import java.util.Date;
 
-public class PAController {
+public class PCController {
         DAOBD dao = new DAOBD();
-        
-        
         
     
     public int QtNoBD() throws SQLException{
         int size = 0;
         ResultSet rs;
-        rs = dao.consultarProcessoAdministrativo();
+        rs = dao.consultarProcessoCompras();
                         
                         while(rs.next()){
                             size++;
@@ -26,10 +22,10 @@ public class PAController {
         return size;
     }
     
-    public ProcessoAdministrativo ConsultaPorID(int id) throws SQLException{
+    public ProcessoCompras ConsultaPorID(int id) throws SQLException{
         ResultSet rs;
-        ProcessoAdministrativo consultado = new ProcessoAdministrativo();
-        rs = dao.consultarProcessoAdministrativo();
+        ProcessoCompras consultado = new ProcessoCompras();
+        rs = dao.consultarProcessoCompras();
         ResultSetMetaData rsmd = rs.getMetaData();
         int columnsNumber = rsmd.getColumnCount();
         
@@ -38,15 +34,18 @@ public class PAController {
                             String columnValue = rs.getString(1);
                             int comparar = Integer.parseInt(columnValue);                                
                                     if(comparar == id){
-                                        String data = rs.getString(2);
+                                        consultado.setNumero(rs.getString(2));
+                                        String data = rs.getString(3);
                                         //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");  
                                         //Date da = (Date) formatter.parse("2018-09-09 09:05:00");
                                         consultado.setData(data);
-                                        consultado.setNumero(rs.getString(3));
-                                        consultado.setCriador(rs.getString(4));
+                                        consultado.setNumerocontrato(rs.getString(4));
                                         consultado.setObjeto(rs.getString(5));
-                                        consultado.setStatus(rs.getString(6));
-                                        consultado.setObservacao(rs.getString(7));
+                                        consultado.setInteressado(rs.getString(6));
+                                        consultado.setValor(rs.getString(7));
+                                        consultado.setPrazo(rs.getString(8));
+                                        consultado.setSituacao(rs.getString(9));
+                                                
                                     }
                             }
             return consultado;

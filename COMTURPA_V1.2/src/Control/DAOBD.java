@@ -18,7 +18,25 @@ public class DAOBD {
     
     
     
-    public ResultSet consultar(){
+    public ResultSet consultarProcessoCompras(){
+        
+        String sql = "SET foreign_key_checks = 0";
+        
+        conexao.conectar();
+        
+        sql = "SELECT * FROM `ProcessoCompras`";
+        
+        conexao.conectar();
+
+        ResultSet st = conexao.pegarResultadoSQL(sql);
+        
+        return st;  
+        
+        
+    }
+    
+    
+    public ResultSet consultarProcessoAdministrativo(){
         
         String sql = "SET foreign_key_checks = 0";
         

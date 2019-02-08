@@ -5,12 +5,14 @@
  */
 package View;
 
-import Control.DAOPA;
-import Control.PAController;
-import Control.ThreadBD;
-import Model.ProcessoAdministrativo;
+
+import Control.DAOPC;
+import Control.PCController;
+import Model.ProcessoCompras;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.sql.SQLException;
+import java.text.NumberFormat;
 import java.util.Calendar;
 import java.util.TimeZone;
 import java.util.logging.Level;
@@ -25,22 +27,18 @@ import javax.swing.text.BadLocationException;
  */
 public class ComprasView extends javax.swing.JFrame {
         boolean clicked = false;
-        ThreadBD thread;
-        DAOPA dao;
-        PAController pac;
-        ProcessoAdministrativo[] pa;
+        DAOPC dao;
+        PCController pcc;
+        ProcessoCompras[] pc;
         int total;
        
     
     public ComprasView() throws IOException, SQLException {
-        dao = new DAOPA();
-        pac = new PAController();
-        total = pac.QtNoBD();        
-        pa = new ProcessoAdministrativo[200];
-        
-        
-
-
+        dao = new DAOPC();
+        pcc = new PCController();
+        total = pcc.QtNoBD();        
+        pc = new ProcessoCompras[200];
+ 
         
         initComponents();
         
@@ -51,22 +49,22 @@ public class ComprasView extends javax.swing.JFrame {
     // Simulate doing something useful.
        
                         for(int i = 1; i <= total; i++)
-                                pa[i-1] = pac.ConsultaPorID(i);
+                                pc[i-1] = pcc.ConsultaPorID(i);
                         
                         for(int i = 0; i < total ; i++)
-                            TextArea.append(pa[i].getNumero()+"\n");
+                            TextArea.append(pc[i].getNumero()+"\n");
        
        while(true){
-                int verificar = pac.QtNoBD();
+                int verificar = pcc.QtNoBD();
                     if(total == verificar){
                     }else{
                         total = verificar;
                         TextArea.setText("");
                         for(int i = 1; i <= total; i++)
-                                pa[i-1] = pac.ConsultaPorID(i);
+                                pc[i-1] = pcc.ConsultaPorID(i);
                         
                         for(int i = 0; i < total ; i++)
-                            TextArea.append(pa[i].getNumero()+"\n");
+                            TextArea.append(pc[i].getNumero()+"\n");
                     }    
             Thread.sleep(500);
        }}
@@ -92,7 +90,7 @@ public class ComprasView extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         TextArea = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        ButtonCriar = new javax.swing.JButton();
         FieldData = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         FieldNumero = new javax.swing.JTextField();
@@ -106,10 +104,17 @@ public class ComprasView extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         FieldObs = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
-        LimparSelecao = new javax.swing.JButton();
+        ButtonLimparSelecao = new javax.swing.JButton();
         Aviso = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        FieldValor = new javax.swing.JTextField();
+        FieldStatus2 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        FieldStatus3 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        ButtonAlterar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -123,8 +128,8 @@ public class ComprasView extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(TextArea);
 
-        jButton1.setText("CRIAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        ButtonCriar.setText("CRIAR");
+        ButtonCriar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonCriar(evt);
             }
@@ -141,11 +146,11 @@ public class ComprasView extends javax.swing.JFrame {
 
         jLabel2.setText("Número");
 
-        jLabel3.setText("Criado por");
+        jLabel3.setText("nº do Contrato");
 
         jLabel4.setText("Objeto");
 
-        jLabel5.setText("Status");
+        jLabel5.setText("Interessado");
 
         FieldObs.setColumns(20);
         FieldObs.setRows(5);
@@ -153,10 +158,10 @@ public class ComprasView extends javax.swing.JFrame {
 
         jLabel6.setText("Observações:");
 
-        LimparSelecao.setText("LIMPAR SELEÇÃO");
-        LimparSelecao.addActionListener(new java.awt.event.ActionListener() {
+        ButtonLimparSelecao.setText("LIMPAR SELEÇÃO");
+        ButtonLimparSelecao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LimparSelecao(evt);
+                ButtonLimparSelecao(evt);
             }
         });
 
@@ -169,6 +174,28 @@ public class ComprasView extends javax.swing.JFrame {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("PROCESSO DE COMPRAS");
 
+        jLabel8.setText("Valor");
+
+        FieldValor.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                FieldValorFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                FieldValorFocusLost(evt);
+            }
+        });
+
+        jLabel9.setText("Prazo");
+
+        jLabel10.setText("Situação");
+
+        ButtonAlterar.setText("ALTERAR");
+        ButtonAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonAlterarButtonCriar(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -177,32 +204,40 @@ public class ComprasView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(LimparSelecao)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1))
+                                .addComponent(ButtonLimparSelecao)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(ButtonAlterar, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(ButtonCriar))
                             .addComponent(Aviso, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(FieldData)
-                                    .addComponent(FieldNumero)
-                                    .addComponent(FieldCriador)
-                                    .addComponent(FieldObjeto)
-                                    .addComponent(FieldStatus))
-                                .addGap(10, 10, 10)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel6))
-                                .addGap(0, 39, Short.MAX_VALUE))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(FieldStatus3)
+                                    .addComponent(FieldStatus2)
+                                    .addComponent(FieldValor)
+                                    .addComponent(FieldStatus, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(FieldNumero)
+                                    .addComponent(FieldCriador)
+                                    .addComponent(FieldData)
+                                    .addComponent(FieldObjeto, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(10, 10, 10)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel10)))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -218,27 +253,38 @@ public class ComprasView extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(FieldData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(FieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(FieldData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(FieldCriador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(FieldObjeto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(FieldStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(FieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(FieldStatus2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(FieldStatus3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                         .addComponent(jLabel6)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -246,8 +292,9 @@ public class ComprasView extends javax.swing.JFrame {
                         .addComponent(Aviso)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(LimparSelecao))
+                            .addComponent(ButtonCriar)
+                            .addComponent(ButtonLimparSelecao)
+                            .addComponent(ButtonAlterar))
                         .addContainerGap())
                     .addComponent(jScrollPane1)))
         );
@@ -255,17 +302,20 @@ public class ComprasView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void LimparSelecao(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparSelecao
+    private void ButtonLimparSelecao(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLimparSelecao
+                      FieldNumero.setText("");              
                       FieldData.setText("");
-                      FieldNumero.setText("");
                       FieldCriador.setText("");
                       FieldObjeto.setText("");
                       FieldStatus.setText("");
+                      FieldValor.setText("");
+                      FieldStatus2.setText("");
+                      FieldStatus3.setText("");
                       FieldObs.setText("");
                       FieldUnlock();
                       clicked = false;
                       Aviso.setText("");
-    }//GEN-LAST:event_LimparSelecao
+    }//GEN-LAST:event_ButtonLimparSelecao
 
     private void LimparSelecao(){
                       FieldData.setText("");
@@ -289,25 +339,32 @@ public class ComprasView extends javax.swing.JFrame {
     }
    
     private void FieldLock(){
-        FieldData.setEditable(false);
         FieldNumero.setEditable(false);
+        FieldData.setEditable(false);
         FieldCriador.setEditable(false);
         FieldObjeto.setEditable(false);
         FieldStatus.setEditable(false);
+        FieldValor.setEditable(false);
+        FieldStatus2.setEditable(false);
+        FieldStatus3.setEditable(false);
         FieldObs.setEditable(false);
     }
     
     private void FieldUnlock(){
-        FieldData.setEditable(true);
         FieldNumero.setEditable(true);
+        FieldData.setEditable(true);
         FieldCriador.setEditable(true);
         FieldObjeto.setEditable(true);
         FieldStatus.setEditable(true);
-        FieldObs.setEditable(true);        
+        FieldValor.setEditable(true);
+        FieldStatus2.setEditable(true);
+        FieldStatus3.setEditable(true);
+        FieldObs.setEditable(true);    
     }
     
     private void TextAreaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TextAreaMouseClicked
-        boolean finded = false;
+        
+        boolean Encontrou = false;
         int line;
         try {
            
@@ -318,25 +375,31 @@ public class ComprasView extends javax.swing.JFrame {
             
                   
                 for(int i = 0; i < total ; i++){
-                    if(text.startsWith(pa[i].getNumero())){
-                      FieldData.setText(pa[i].getData());
-                      FieldNumero.setText(pa[i].getNumero());
-                      FieldCriador.setText(pa[i].getCriador());
-                      FieldObjeto.setText(pa[i].getObjeto());
-                      FieldStatus.setText(pa[i].getStatus());
-                      FieldObs.setText(pa[i].getObservacao());
-                      finded = true;
+                    if(text.startsWith(pc[i].getNumero())){
+                      FieldNumero.setText(pc[i].getNumero());
+                      FieldData.setText(pc[i].getData());
+                      FieldCriador.setText(pc[i].getNumerocontrato());
+                      FieldObjeto.setText(pc[i].getObjeto());
+                      FieldStatus.setText(pc[i].getInteressado());
+                      FieldValor.setText(pc[i].getValor());
+                      FieldStatus2.setText(pc[i].getPrazo());
+                      FieldStatus3.setText(pc[i].getSituacao());
+                      FieldObs.setText(pc[i].getObs());
+                      Encontrou = true;
                       clicked = true;
                       FieldLock();
                     }
                 }
                 
-                if(finded == false){
-                      FieldData.setText("");
+                if(Encontrou == false){
                       FieldNumero.setText("");
+                      FieldData.setText("");
                       FieldCriador.setText("");
                       FieldObjeto.setText("");
                       FieldStatus.setText("");
+                      FieldValor.setText("");
+                      FieldStatus2.setText("");
+                      FieldStatus3.setText("");
                       FieldObs.setText("");
                       FieldUnlock();
                 }
@@ -379,31 +442,29 @@ public class ComprasView extends javax.swing.JFrame {
             Aviso.setText("Favor preencher todos os Campos!");
             LimparSelecaoExcetoData();
         
-        if(FieldCriador.getText().isEmpty() || FieldData.getText() == ""){
+        if(FieldCriador.getText().isEmpty() || FieldObjeto.getText() == ""){
             Aviso.setText("Favor preencher todos os Campos!");
             LimparSelecaoExcetoData();
         }
-        if(FieldObjeto.getText().isEmpty() || FieldData.getText() == ""){
+        if(FieldStatus.getText().isEmpty() || FieldValor.getText() == ""){
             Aviso.setText("Favor preencher todos os Campos!");
             LimparSelecaoExcetoData();
         }
-        if(FieldStatus.getText().isEmpty() || FieldData.getText() == ""){
-            Aviso.setText("Favor preencher todos os Campos!");
-            LimparSelecaoExcetoData();
-        }
-        if(FieldObs.getText().isEmpty() || FieldData.getText() == ""){
+        if(FieldStatus2.getText().isEmpty() || FieldStatus3.getText() == ""){
             Aviso.setText("Favor preencher todos os Campos!");
             LimparSelecaoExcetoData();
         }
         }else{
-            ProcessoAdministrativo criar = new ProcessoAdministrativo();
-            criar.setData(FieldData.getText());
+            ProcessoCompras criar = new ProcessoCompras();
             criar.setNumero(FieldNumero.getText());
-            criar.setCriador(FieldCriador.getText());
+            criar.setData(FieldData.getText());
+            criar.setNumerocontrato(FieldCriador.getText());
             criar.setObjeto(FieldObjeto.getText());
-            criar.setStatus(FieldStatus.getText());
-            criar.setObservacao(FieldObs.getText());
-            DAOPA dao = new DAOPA();
+            criar.setInteressado(FieldStatus.getText());
+            criar.setValor(FieldValor.getText());
+            criar.setPrazo(FieldStatus2.getText());
+            criar.setSituacao(FieldStatus3.getText());
+            DAOPC dao = new DAOPC();
             if(dao.inserir(criar)){
                 Aviso.setText("Inserido com Sucesso!"); 
                 LimparSelecao();
@@ -424,6 +485,48 @@ public class ComprasView extends javax.swing.JFrame {
             FieldNumero.setText(a);
         }
     }//GEN-LAST:event_FieldNumeroFocusLost
+
+   
+    
+    
+    private void ButtonAlterarButtonCriar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAlterarButtonCriar
+
+    }//GEN-LAST:event_ButtonAlterarButtonCriar
+
+    private void FieldValorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_FieldValorFocusLost
+        // TODO add your handling code here:
+        String a = "";        
+        a = FieldValor.getText();  
+        
+        if(a.contains(",")){
+            a = a.replace(",", ".");
+        }
+        
+        if(FieldValor.getText().contains("R$")){
+            
+        }else{
+        Double b = Double.parseDouble(a);
+        BigDecimal v = BigDecimal.valueOf(b);
+ 
+        NumberFormat nf = NumberFormat.getCurrencyInstance();  
+
+        String formatado = nf.format(v);
+
+        FieldValor.setText(formatado);
+
+        }
+        
+    }//GEN-LAST:event_FieldValorFocusLost
+
+    private void FieldValorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_FieldValorFocusGained
+        if(FieldValor.getText().isEmpty()){
+            
+        }else
+            FieldValor.selectAll();
+        
+        
+        
+    }//GEN-LAST:event_FieldValorFocusGained
 
     /**
      * @param args the command line arguments
@@ -477,23 +580,30 @@ public class ComprasView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JLabel Aviso;
+    private javax.swing.JButton ButtonAlterar;
+    private javax.swing.JButton ButtonCriar;
+    private javax.swing.JButton ButtonLimparSelecao;
     private javax.swing.JTextField FieldCriador;
     private javax.swing.JTextField FieldData;
     private javax.swing.JTextField FieldNumero;
     private javax.swing.JTextField FieldObjeto;
     private javax.swing.JTextArea FieldObs;
     private javax.swing.JTextField FieldStatus;
-    private javax.swing.JButton LimparSelecao;
+    private javax.swing.JTextField FieldStatus2;
+    private javax.swing.JTextField FieldStatus3;
+    private javax.swing.JTextField FieldValor;
     public static javax.swing.JTextArea TextArea;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
