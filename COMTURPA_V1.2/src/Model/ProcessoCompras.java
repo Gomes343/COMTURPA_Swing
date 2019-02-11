@@ -29,6 +29,21 @@ public class ProcessoCompras {
         this.situacao = situacao;
     }
 
+    @Override
+    public String toString(){
+        System.out.println("Processo Compras\n"
+                    + "Numero = "+numero+"\n"
+                    + "Data = "+data+"\n"
+                    + "numerocontrato = "+numerocontrato+"\n"
+                    + "Objeto = "+objeto+"\n"
+                    + "Interessado = "+interessado+"\n"
+                    + "Valor = "+valor+"\n"
+                    + "Prazo = "+prazo+"\n"
+                    + "Situacao = "+situacao+"\n");
+        return null;
+        
+    };
+    
     public String getObs() {
         return Obs;
     }

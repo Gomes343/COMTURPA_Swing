@@ -15,12 +15,15 @@ import java.util.logging.Logger;
  * @author Usuario
  */
 public class InicioView extends javax.swing.JFrame {
-
+            PAView pa;
+            ComprasView cv;
     /**
      * Creates new form InicioView
      */
-    public InicioView() {
+    public InicioView() throws IOException, SQLException {
         initComponents();
+                    pa = new PAView();
+                    cv = new ComprasView();
     }
 
     /**
@@ -45,14 +48,14 @@ public class InicioView extends javax.swing.JFrame {
         jButton1.setText("PROCESSO DE COMPRAS");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ProcessoCompras(evt);
             }
         });
 
         jButton2.setText("PROCESSO \n\nADMINISTRATIVO");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                ProcessoAdm(evt);
             }
         });
 
@@ -83,41 +86,21 @@ public class InicioView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            // TODO add your handling code here:
+    private void ProcessoCompras(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProcessoCompras
 
-            AlterarComprasView pv = new AlterarComprasView();
-            pv.setVisible(true);
-            this.setVisible(false);
-            
-            
-        } catch (IOException ex) {
-            Logger.getLogger(InicioView.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(InicioView.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.setVisible(false);
+        cv.setVisible(true);
         
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_ProcessoCompras
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try {
-            // TODO add your handling code here:
+    private void ProcessoAdm(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProcessoAdm
 
-            PAView pv = new PAView();
-            pv.setVisible(true);
-            this.setVisible(false);
-            
-            
-        } catch (IOException ex) {
-            Logger.getLogger(InicioView.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(InicioView.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
+        this.setVisible(false);
+        pa.setVisible(true);
         
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_ProcessoAdm
 
     /**
      * @param args the command line arguments
@@ -149,7 +132,13 @@ public class InicioView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InicioView().setVisible(true);
+                try {
+                    new InicioView().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(InicioView.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+                    Logger.getLogger(InicioView.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

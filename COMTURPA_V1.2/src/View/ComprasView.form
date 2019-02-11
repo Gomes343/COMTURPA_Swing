@@ -23,8 +23,9 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jLabel7" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="jScrollPane1" min="-2" pref="190" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -46,12 +47,12 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="FieldStatus3" max="32767" attributes="0"/>
-                                  <Component id="FieldStatus2" max="32767" attributes="0"/>
+                                  <Component id="FieldSituacao" max="32767" attributes="0"/>
+                                  <Component id="FieldPrazo" max="32767" attributes="0"/>
                                   <Component id="FieldValor" max="32767" attributes="0"/>
-                                  <Component id="FieldStatus" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="FieldInteressado" alignment="0" max="32767" attributes="0"/>
                                   <Component id="FieldNumero" max="32767" attributes="0"/>
-                                  <Component id="FieldCriador" max="32767" attributes="0"/>
+                                  <Component id="FieldNumerocontrato" max="32767" attributes="0"/>
                                   <Component id="FieldData" max="32767" attributes="0"/>
                                   <Component id="FieldObjeto" alignment="0" max="32767" attributes="0"/>
                               </Group>
@@ -69,11 +70,6 @@
                           </Group>
                       </Group>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jLabel7" max="32767" attributes="0"/>
-                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -82,11 +78,8 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -100,7 +93,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="FieldCriador" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="FieldNumerocontrato" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -110,7 +103,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="FieldStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="FieldInteressado" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -120,12 +113,12 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="FieldStatus2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="FieldPrazo" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="FieldStatus3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="FieldSituacao" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="24" max="32767" attributes="0"/>
@@ -198,7 +191,7 @@
         <Property name="text" type="java.lang.String" value="N&#xfa;mero"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="FieldCriador">
+    <Component class="javax.swing.JTextField" name="FieldNumerocontrato">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -212,7 +205,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="FieldObjeto">
     </Component>
-    <Component class="javax.swing.JTextField" name="FieldStatus">
+    <Component class="javax.swing.JTextField" name="FieldInteressado">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
@@ -256,15 +249,10 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="VOLTAR"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="0"/>
+          <Font name="Tahoma" size="18" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="PROCESSO DE COMPRAS"/>
@@ -281,14 +269,14 @@
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="FieldValorFocusLost"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="FieldStatus2">
+    <Component class="javax.swing.JTextField" name="FieldPrazo">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
         <Property name="text" type="java.lang.String" value="Prazo"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="FieldStatus3">
+    <Component class="javax.swing.JTextField" name="FieldSituacao">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
       <Properties>
@@ -300,7 +288,7 @@
         <Property name="text" type="java.lang.String" value="ALTERAR"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAlterarButtonCriar"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAlterar"/>
       </Events>
     </Component>
   </SubComponents>

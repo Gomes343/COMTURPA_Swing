@@ -28,50 +28,44 @@
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="CheckNumero" min="-2" max="-2" attributes="0"/>
                           <Component id="CheckData" min="-2" max="-2" attributes="0"/>
-                          <Component id="CheckNumeroContrato" min="-2" max="-2" attributes="0"/>
+                          <Component id="CheckNumero" min="-2" max="-2" attributes="0"/>
+                          <Component id="CheckCriador" min="-2" max="-2" attributes="0"/>
                           <Component id="CheckObjeto" min="-2" max="-2" attributes="0"/>
-                          <Component id="CheckInteressado" min="-2" max="-2" attributes="0"/>
-                          <Component id="CheckValor" min="-2" max="-2" attributes="0"/>
-                          <Component id="CheckPrazo" min="-2" max="-2" attributes="0"/>
-                          <Component id="CheckSituacao" min="-2" max="-2" attributes="0"/>
+                          <Component id="CheckStatus" min="-2" max="-2" attributes="0"/>
+                          <Component id="CheckObs" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="FieldObjeto" alignment="0" pref="283" max="32767" attributes="0"/>
-                              <Component id="FieldNumeroContrato" alignment="0" max="32767" attributes="0"/>
-                              <Component id="FieldData" alignment="0" pref="283" max="32767" attributes="0"/>
+                              <Component id="FieldCriador" alignment="0" max="32767" attributes="0"/>
+                              <Component id="FieldNumero" alignment="0" pref="283" max="32767" attributes="0"/>
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="FieldSituacao" alignment="0" pref="283" max="32767" attributes="0"/>
-                              <Component id="FieldPrazo" alignment="0" pref="283" max="32767" attributes="0"/>
-                              <Component id="FieldValor" alignment="0" pref="283" max="32767" attributes="0"/>
-                              <Component id="FieldInteressado" alignment="0" pref="283" max="32767" attributes="0"/>
+                              <Component id="FieldObservacao" alignment="0" pref="283" max="32767" attributes="0"/>
+                              <Component id="FieldStatus" alignment="0" pref="283" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="FieldNumero" min="-2" pref="283" max="-2" attributes="0"/>
+                          <Component id="FieldData" min="-2" pref="283" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="ButtonVoltar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="ButtonAlterar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="50" max="32767" attributes="0"/>
           </Group>
           <Component id="jLabel6" alignment="1" max="32767" attributes="0"/>
       </Group>
@@ -89,27 +83,27 @@
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="CheckNumero" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="CheckData" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="FieldNumero" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="FieldData" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="FieldData" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="FieldNumero" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="CheckData" min="-2" max="-2" attributes="0"/>
+                                  <Component id="CheckNumero" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="FieldNumeroContrato" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="FieldCriador" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="CheckNumeroContrato" min="-2" max="-2" attributes="0"/>
+                          <Component id="CheckCriador" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -121,37 +115,21 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="FieldInteressado" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="FieldStatus" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="CheckInteressado" min="-2" max="-2" attributes="0"/>
+                  <Component id="CheckStatus" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="FieldValor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="FieldObservacao" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="CheckValor" min="-2" max="-2" attributes="0"/>
+                  <Component id="CheckObs" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="FieldPrazo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="CheckPrazo" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="FieldSituacao" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="CheckSituacao" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="42" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="ButtonAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="ButtonVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -162,28 +140,28 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="FieldNumero">
+    <Component class="javax.swing.JTextField" name="FieldData">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="N&#xfa;mero"/>
+        <Property name="text" type="java.lang.String" value="Data"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="FieldData">
+    <Component class="javax.swing.JTextField" name="FieldNumero">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Data da Cria&#xe7;&#xe3;o"/>
+        <Property name="text" type="java.lang.String" value="Numero"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="FieldNumeroContrato">
+    <Component class="javax.swing.JTextField" name="FieldCriador">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="n&#xba; do Contrato"/>
+        <Property name="text" type="java.lang.String" value="Criador"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="FieldObjeto">
@@ -193,51 +171,33 @@
         <Property name="text" type="java.lang.String" value="Objeto"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="FieldInteressado">
+    <Component class="javax.swing.JTextField" name="FieldStatus">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Interessado"/>
+        <Property name="text" type="java.lang.String" value="Status"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="FieldValor">
-      <Events>
-        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="FieldValorFocusGained"/>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="FieldValorFocusLost"/>
-      </Events>
+    <Component class="javax.swing.JTextField" name="FieldObservacao">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Valor"/>
+        <Property name="text" type="java.lang.String" value="Obs"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="FieldPrazo">
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel9">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Prazo"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="FieldSituacao">
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel10">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Situa&#xe7;&#xe3;o"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JCheckBox" name="CheckNumero">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CheckNumeroActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="CheckData">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CheckDataActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="CheckNumeroContrato">
+    <Component class="javax.swing.JCheckBox" name="CheckNumero">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CheckNumeroContratoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CheckNumeroActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="CheckCriador">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CheckCriadorActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JCheckBox" name="CheckObjeto">
@@ -245,24 +205,14 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CheckObjetoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="CheckInteressado">
+    <Component class="javax.swing.JCheckBox" name="CheckStatus">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CheckInteressadoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CheckStatusActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="CheckValor">
+    <Component class="javax.swing.JCheckBox" name="CheckObs">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CheckValorActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JCheckBox" name="CheckPrazo">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CheckPrazoActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JCheckBox" name="CheckSituacao">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CheckSituacaoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CheckObsActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">

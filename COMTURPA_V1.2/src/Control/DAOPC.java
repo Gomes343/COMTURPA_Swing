@@ -35,10 +35,11 @@ public class DAOPC {
         return b;     
         
     }
-    /*
-    public boolean atualizarData(int id, String data){
+    
+    
+    public boolean atualizarNumero(String numeronovo,String numeroantigo){
         //criar a SQL com variaveis
-        String sql = "UPDATE Cidadao SET nome = '"+nome+"' where id = "+id;
+        String sql = "UPDATE ProcessoCompras SET numero = '"+numeronovo+"' where numero = '"+numeroantigo+"'";
         
         //conectar com BD
         conexao.conectar();
@@ -48,12 +49,14 @@ public class DAOPC {
         
         //retornar erro ou ok 
         return b;     
+        
         
     }
     
-    public boolean atualizarNumero(int id, String numero){
+    
+    public boolean atualizarData (String data, String numero){
         //criar a SQL com variaveis
-        String sql = "UPDATE Cidadao SET cpf = '"+cpf+"' where id = "+id;
+        String sql = "UPDATE ProcessoCompras SET data = '"+data+"' where numero = '"+numero+"'";
         
         //conectar com BD
         conexao.conectar();
@@ -63,12 +66,15 @@ public class DAOPC {
         
         //retornar erro ou ok 
         return b;     
+        
         
     }
     
-    public boolean atualizarCriador(int id, String dono){
+    
+     
+    public boolean atualizarNumeroContrato (String numerocontrato, String numero){
         //criar a SQL com variaveis
-        String sql = "UPDATE Cidadao SET regiao = '"+regiao+"' where id = "+id;
+        String sql = "UPDATE ProcessoCompras SET numerocontrato = '"+numerocontrato+"' where numero = '"+numero+"'";
         
         //conectar com BD
         conexao.conectar();
@@ -78,12 +84,14 @@ public class DAOPC {
         
         //retornar erro ou ok 
         return b;     
+        
         
     }
     
-    public boolean atualizarObjeto(int id, String objeto){
+     
+    public boolean atualizarObjeto (String objeto, String numero){
         //criar a SQL com variaveis
-        String sql = "UPDATE Cidadao SET nascimento = '"+nascimento+"' where id = "+id;
+        String sql = "UPDATE ProcessoCompras SET objeto = '"+objeto+"' where numero = '"+numero+"'";
         
         //conectar com BD
         conexao.conectar();
@@ -93,12 +101,15 @@ public class DAOPC {
         
         //retornar erro ou ok 
         return b;     
+        
         
     }
     
-    public boolean atualizarAssunto(int id, int assunto){
+    
+     
+    public boolean atualizarInteressado (String interessado, String numero){
         //criar a SQL com variaveis
-        String sql = "UPDATE Cidadao SET PaisID = '"+PaisID+"' where id = "+id;
+        String sql = "UPDATE ProcessoCompras SET data = '"+interessado+"' where numero = '"+numero+"'";
         
         //conectar com BD
         conexao.conectar();
@@ -108,16 +119,15 @@ public class DAOPC {
         
         //retornar erro ou ok 
         return b;     
+        
         
     }
     
-    public boolean apagar(int id){
-        
-        String sql = "SET foreign_key_checks = 0";
-        
-        conexao.conectar();
-        
-        sql = "DELETE FROM Cidadao WHERE id = "+id;
+    
+     
+    public boolean atualizarValor (String valor, String numero){
+        //criar a SQL com variaveis
+        String sql = "UPDATE ProcessoCompras SET valor = '"+valor+"' where numero = '"+numero+"'";
         
         //conectar com BD
         conexao.conectar();
@@ -127,8 +137,46 @@ public class DAOPC {
         
         //retornar erro ou ok 
         return b;     
-            
+        
+        
     }
-*/
+    
+    
+ 
+    public boolean atualizarPrazo (String prazo, String numero){
+        //criar a SQL com variaveis
+        String sql = "UPDATE ProcessoCompras SET prazo = '"+prazo+"' where numero = '"+numero+"'";
+        
+        //conectar com BD
+        conexao.conectar();
+
+        //enviar SQL para banco de dados
+        boolean b = conexao.executarComandosSQL(sql);
+        
+        //retornar erro ou ok 
+        return b;     
+        
+        
+    }
+    
+    
+     
+    public boolean atualizarSituacao (String situacao, String numero){
+        //criar a SQL com variaveis
+        String sql = "UPDATE ProcessoCompras SET situacao = '"+situacao+"' where numero = '"+numero+"'";
+        
+        //conectar com BD
+        conexao.conectar();
+
+        //enviar SQL para banco de dados
+        boolean b = conexao.executarComandosSQL(sql);
+        
+        //retornar erro ou ok 
+        return b;     
+        
+        
+    }
+    
+    
 
 }

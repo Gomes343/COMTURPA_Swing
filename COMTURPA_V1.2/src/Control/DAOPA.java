@@ -34,10 +34,10 @@ public class DAOPA {
         return b;     
         
     }
-    /*
-    public boolean atualizarData(int id, String data){
+   
+    public boolean atualizarData(String data, String numero){
         //criar a SQL com variaveis
-        String sql = "UPDATE Cidadao SET nome = '"+nome+"' where id = "+id;
+        String sql = "UPDATE ProcessoAdministrativo SET data = '"+data+"' where id = '"+numero+"'";
         
         //conectar com BD
         conexao.conectar();
@@ -49,10 +49,11 @@ public class DAOPA {
         return b;     
         
     }
-    
-    public boolean atualizarNumero(int id, String numero){
+   
+
+    public boolean atualizarNumero(String numeronovo, String numerovelho){
         //criar a SQL com variaveis
-        String sql = "UPDATE Cidadao SET cpf = '"+cpf+"' where id = "+id;
+        String sql = "UPDATE ProcessoAdministrativo SET Numero = '"+numeronovo+"' where Numero = '"+numerovelho+"'";
         
         //conectar com BD
         conexao.conectar();
@@ -64,10 +65,11 @@ public class DAOPA {
         return b;     
         
     }
-    
-    public boolean atualizarCriador(int id, String dono){
+   
+
+    public boolean atualizarCriador(String criador, String numero){
         //criar a SQL com variaveis
-        String sql = "UPDATE Cidadao SET regiao = '"+regiao+"' where id = "+id;
+        String sql = "UPDATE ProcessoAdministrativo SET Criador = '"+criador+"' where Numero = '"+numero+"'";
         
         //conectar com BD
         conexao.conectar();
@@ -79,10 +81,11 @@ public class DAOPA {
         return b;     
         
     }
-    
-    public boolean atualizarObjeto(int id, String objeto){
+   
+
+    public boolean atualizarObjeto(String objeto, String numero){
         //criar a SQL com variaveis
-        String sql = "UPDATE Cidadao SET nascimento = '"+nascimento+"' where id = "+id;
+        String sql = "UPDATE ProcessoAdministrativo SET Objeto = '"+objeto+"' where Numero = '"+numero+"'";
         
         //conectar com BD
         conexao.conectar();
@@ -94,10 +97,11 @@ public class DAOPA {
         return b;     
         
     }
-    
-    public boolean atualizarAssunto(int id, int assunto){
+   
+
+    public boolean atualizarStatus(String status, String numero){
         //criar a SQL com variaveis
-        String sql = "UPDATE Cidadao SET PaisID = '"+PaisID+"' where id = "+id;
+        String sql = "UPDATE ProcessoAdministrativo SET Status = '"+status+"' where Numero = '"+numero+"'";
         
         //conectar com BD
         conexao.conectar();
@@ -109,25 +113,22 @@ public class DAOPA {
         return b;     
         
     }
+   
+
+    public boolean atualizarObservacao(String obs, String numero){
+        //criar a SQL com variaveis
+        String sql = "UPDATE ProcessoAdministrativo SET Observacao = '"+obs+"' where Numero = '"+numero+"'";
+        
+        //conectar com BD
+        conexao.conectar();
+
+        //enviar SQL para banco de dados
+        boolean b = conexao.executarComandosSQL(sql);
+        
+        //retornar erro ou ok 
+        return b;     
+        
+    }
+   
     
-    public boolean apagar(int id){
-        
-        String sql = "SET foreign_key_checks = 0";
-        
-        conexao.conectar();
-        
-        sql = "DELETE FROM Cidadao WHERE id = "+id;
-        
-        //conectar com BD
-        conexao.conectar();
-
-        //enviar SQL para banco de dados
-        boolean b = conexao.executarComandosSQL(sql);
-        
-        //retornar erro ou ok 
-        return b;     
-            
-    }
-*/
-
 }

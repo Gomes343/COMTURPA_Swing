@@ -63,7 +63,7 @@
         <Property name="text" type="java.lang.String" value="PROCESSO DE COMPRAS"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ProcessoCompras"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">
@@ -71,7 +71,7 @@
         <Property name="text" type="java.lang.String" value="PROCESSO &#xa;&#xa;ADMINISTRATIVO"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ProcessoAdm"/>
       </Events>
     </Component>
   </SubComponents>
