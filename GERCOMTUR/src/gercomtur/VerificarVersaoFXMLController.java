@@ -151,7 +151,7 @@ public class VerificarVersaoFXMLController implements Initializable {
                     ProgressBarr.setVisible(false);
                     LabelSameVersion.setVisible(true);
                     System.out.println("ee  ");
-                    sleep(1000);
+                    sleep(2000);
                       
                 } catch (InterruptedException e) {
                     Logger.getLogger(VerificarVersaoFXMLController.class.getName()).log(Level.SEVERE, null, e);
@@ -176,6 +176,7 @@ public class VerificarVersaoFXMLController implements Initializable {
                 } catch (IOException ex) {
                     Logger.getLogger(VerificarVersaoFXMLController.class.getName()).log(Level.SEVERE, null, ex);
                 }
+
                 Stage stage = new Stage();
                 Scene scene = new Scene(root, 400, 240);
                 stage.setScene(scene);
@@ -236,6 +237,8 @@ public class VerificarVersaoFXMLController implements Initializable {
     }
         
     }
+
+
 }
     
 
