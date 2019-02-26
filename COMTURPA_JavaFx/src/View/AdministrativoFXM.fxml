@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="484.0" prefWidth="531.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXMLController.ComprasController">
+   <children>
+      <ScrollPane layoutY="55.0" prefHeight="428.0" prefWidth="200.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="565.0" prefWidth="190.0">
+               <children>
+                  <TextArea fx:id="Area" layoutX="6.0" layoutY="-1.0" prefHeight="561.0" prefWidth="182.0" />
+               </children></AnchorPane>
+        </content>
+      </ScrollPane>
+      <Label alignment="CENTER" layoutY="12.0" prefHeight="28.0" prefWidth="531.0" text="PROCESSO ADMINISTRATIVO" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <ImageView layoutX="7.0" layoutY="10.0">
+         <image>
+            <Image url="@../Imagens/back.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="BackButton" layoutX="7.0" layoutY="13.0" prefHeight="28.0" prefWidth="32.0" style="-jfx-disable-visual-focus: true;" text=" " />
+      <ImageView layoutX="493.0" layoutY="10.0">
+         <image>
+            <Image url="@../Imagens/printer-.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="PrintButton" layoutX="492.0" layoutY="12.0" prefHeight="28.0" prefWidth="32.0" text=" " />
+      <TextField fx:id="FieldData" layoutX="213.0" layoutY="55.0" prefHeight="25.0" prefWidth="200.0" />
+      <TextField fx:id="FieldNumeroContrato" layoutX="213.0" layoutY="90.0" prefHeight="25.0" prefWidth="200.0" />
+      <TextField fx:id="FieldObjeto" layoutX="213.0" layoutY="160.0" prefHeight="25.0" prefWidth="200.0" />
+      <TextField fx:id="FieldInteressado" layoutX="213.0" layoutY="125.0" prefHeight="25.0" prefWidth="200.0" />
+      <TextField fx:id="FieldValor" layoutX="213.0" layoutY="195.0" prefHeight="25.0" prefWidth="200.0" />
+      <Label layoutX="422.0" layoutY="59.0" text="Data da Criação" />
+      <Label layoutX="422.0" layoutY="94.0" text="nº do Processo" />
+      <Label layoutX="422.0" layoutY="164.0" text="Objeto" />
+      <Label layoutX="422.0" layoutY="129.0" text="Criador" />
+      <Label layoutX="422.0" layoutY="199.0" text="Status" />
+      <Label layoutX="213.0" layoutY="238.0" text="Observações:" />
+      <TextArea layoutX="213.0" layoutY="260.0" prefHeight="167.0" prefWidth="298.0" />
+      <JFXButton fx:id="LimparButton" buttonType="RAISED" layoutX="237.0" layoutY="445.0" stylesheets="@CSSBásico.css" text="LIMPAR SELEÇÃO" />
+      <JFXButton fx:id="AlterarButton" buttonType="RAISED" layoutX="372.0" layoutY="445.0" stylesheets="@CSSBásico.css" text="ALTERAR" />
+      <JFXButton fx:id="CriarButton" buttonType="RAISED" layoutX="460.0" layoutY="445.0" stylesheets="@CSSBásico.css" text="CRIAR" />
+   </children>
+</AnchorPane>
