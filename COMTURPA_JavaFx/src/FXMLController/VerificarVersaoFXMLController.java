@@ -1,4 +1,4 @@
-package gercomtur;
+package FXMLController;
 
 import DAO.DAOVerificarVersao;
 import com.jfoenix.controls.JFXButton;
@@ -26,6 +26,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javax.swing.JFileChooser;
 
 public class VerificarVersaoFXMLController implements Initializable {
@@ -51,7 +52,7 @@ public class VerificarVersaoFXMLController implements Initializable {
     private Label LabelSameVersion;
 
     private final String programa = "COMTURPA";
-    private final String versao = "1.2.0";
+    private final String versao = "1.2.1";
     public boolean same;
     
     private String versaonova = "";
@@ -112,7 +113,7 @@ public class VerificarVersaoFXMLController implements Initializable {
             @Override
             protected Void call() throws Exception {
                 try {
-                    sleep(2000);
+                    sleep(4000);
                     ButtonNewVersion.setVisible(true);
                     LabelNewVersion.setVisible(true);
                     ProgressBarr.setVisible(false);
@@ -172,13 +173,13 @@ public class VerificarVersaoFXMLController implements Initializable {
                 System.out.println("eee");
                 Parent root = null;
                 try {
-                    root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("/FXMLView/ComprasFXML.fxml"));
                 } catch (IOException ex) {
                     Logger.getLogger(VerificarVersaoFXMLController.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
                 Stage stage = new Stage();
-                Scene scene = new Scene(root, 400, 240);
+                Scene scene = new Scene(root, 531, 484);
                 stage.setScene(scene);
                 stage.show();    
                 
